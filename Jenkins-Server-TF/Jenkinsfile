@@ -17,6 +17,11 @@ pipeline {
                 sh 'echo Preparing'
             }
         }
+        stage('Git Pulling') {
+            steps {
+                git branch: 'master', url: 'https://github.com/bughawpula/End-to-End-Kubernetes-Three-Tier-DevSecOps-Project.git'
+            }
+        }
         stage('Init') {
             steps {
                 withAWS(credentials: 'aws-creds', region: 'us-east-1') {	
